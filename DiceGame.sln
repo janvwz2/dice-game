@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{799AA21B-E532-4207-9DE7-CED6E055D9E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiceGame.Core", "src\DiceGame.Core\DiceGame.Core.csproj", "{37CB824C-8537-4CF1-9229-3FCC74CDA079}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiceGame.WebApp", "src/DiceGame.WebApp\DiceGame.WebApp.csproj", "{DF157DED-FA41-4495-99E7-FB24E0CAE085}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{8D6E5A33-5139-4422-BF36-EE95FC98189B}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{65EA83EC-30D6-42C3-B45C-0F95E7572B24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiceGame.UnitTests", "tests\DiceGame.UnitTests\DiceGame.UnitTests.csproj", "{475C9491-3890-40F7-B8B1-1F02424C7E7D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{37CB824C-8537-4CF1-9229-3FCC74CDA079} = {799AA21B-E532-4207-9DE7-CED6E055D9E1}
+		{DF157DED-FA41-4495-99E7-FB24E0CAE085} = {799AA21B-E532-4207-9DE7-CED6E055D9E1}
+		{475C9491-3890-40F7-B8B1-1F02424C7E7D} = {65EA83EC-30D6-42C3-B45C-0F95E7572B24}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37CB824C-8537-4CF1-9229-3FCC74CDA079}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37CB824C-8537-4CF1-9229-3FCC74CDA079}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37CB824C-8537-4CF1-9229-3FCC74CDA079}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37CB824C-8537-4CF1-9229-3FCC74CDA079}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF157DED-FA41-4495-99E7-FB24E0CAE085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF157DED-FA41-4495-99E7-FB24E0CAE085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF157DED-FA41-4495-99E7-FB24E0CAE085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF157DED-FA41-4495-99E7-FB24E0CAE085}.Release|Any CPU.Build.0 = Release|Any CPU
+		{475C9491-3890-40F7-B8B1-1F02424C7E7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{475C9491-3890-40F7-B8B1-1F02424C7E7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{475C9491-3890-40F7-B8B1-1F02424C7E7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{475C9491-3890-40F7-B8B1-1F02424C7E7D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

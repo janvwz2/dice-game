@@ -1,0 +1,67 @@
+@using DiceGame.Core
+<button type="button" @disabled="@IsDisabled" class="btn btn-lg btn-@DieCssModifier" @onclick="@ToggleDieSelection">
+    @switch (Die.ActiveFace)
+    {
+        case ActiveDieFaceType.NotThrown:
+            <i class="fa-solid fa-question"></i>
+
+            break;
+        case ActiveDieFaceType.One:
+            <i class="fa-solid fa-dice-one"></i>
+
+            break;
+        case ActiveDieFaceType.Two:
+            <i class="fa-solid fa-dice-two"></i>
+
+            break;
+
+        case ActiveDieFaceType.Three:
+            <i class="fa-solid fa-dice-three"></i>
+
+            break;
+
+        case ActiveDieFaceType.Four:
+            <i class="fa-solid fa-dice-four"></i>
+
+            break;
+
+        case ActiveDieFaceType.Five:
+            <i class="fa-solid fa-dice-five"></i>
+
+            break;
+
+        case ActiveDieFaceType.Six:
+            <i class="fa-solid fa-dice-six"></i>
+
+            break;
+        default: throw new ArgumentOutOfRangeException();
+    }
+</button>
+
+@code {
+
+    [Parameter]
+    public required Die Die { get; set; }
+
+    [Parameter]
+    public bool IsSelected { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> IsSelectedChanged { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    private string DieCssModifier =>
+        IsSelected
+            ? "primary"
+            : "secondary";
+
+    private async Task ToggleDieSelection()
+    {
+        IsSelected = !IsSelected;
+
+        await IsSelectedChanged.InvokeAsync(IsSelected);
+    }
+
+}

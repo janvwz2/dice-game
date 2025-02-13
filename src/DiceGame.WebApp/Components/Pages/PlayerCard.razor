@@ -1,0 +1,33 @@
+@using DiceGame.Core
+@using DiceGame.WebApp.Components.Shared
+<div class="card h-100">
+    <div class="card-body">
+        <PlayerNameDisplay Player="@Player"/>
+        <h5 class="card-title">Hand</h5>
+        <div class="mb-1">
+            <DiceDisplay Dice="@Player.Hand" IsDisabled="!Player.IsActive"
+                         OnDieKept="@(die => Player.KeepDie(die))"
+                         OnDieRemoved="@(die => Player.RemoveDie(die))"/>
+        </div>
+        <div>
+            <span>Selected score:</span>
+            <strong>@Player.KeptDice.Score</strong>
+        </div>
+        @if (Player.IsActive)
+        {
+            <div class="mt-2">
+                <button type="button" class="btn btn-success" @onclick="@Player.ThrowDice">
+                    <i class="fa-solid fa-dice fa-fw"></i>
+                    <span>Throw dice</span>
+                </button>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public required Player Player { get; set; }
+
+}

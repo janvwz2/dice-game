@@ -1,0 +1,49 @@
+@using DiceGame.Core
+
+@if (Dice.All(d => d.ActiveFace == ActiveDieFaceType.NotThrown))
+{
+    <div>
+        <span class="text-muted">No dice thrown.</span>
+    </div>
+}
+else
+{
+    <div class="d-flex flex-row gap-1">
+        @foreach (var die in Dice)
+        {
+            <div>
+                <DieDisplay Die="@die" IsDisabled="@IsDisabled" IsSelectedChanged="@(isSelected => SelectDie(die, isSelected))"/>
+            </div>
+        }
+    </div>
+}
+
+@code {
+
+    [Parameter]
+    public required IEnumerable<Die> Dice { get; set; }
+
+    [Parameter]
+    public EventCallback<Die> OnDieKept { get; set; }
+
+    [Parameter]
+    public EventCallback<Die> OnDieRemoved { get; set; }
+
+    [Parameter]
+    public bool IsDisabled { get; set; }
+
+    private async Task SelectDie(
+        Die  die,
+        bool isSelected)
+    {
+        if (isSelected)
+        {
+            await OnDieKept.InvokeAsync(die);
+        }
+        else
+        {
+            await OnDieRemoved.InvokeAsync(die);
+        }
+    }
+
+}

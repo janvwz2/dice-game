@@ -1,0 +1,15 @@
+@using DiceGame.Core
+<h4 class="card-title">
+    <span>@Player.Name</span>
+    @if (Player.IsActive)
+    {
+        <span>&nbsp;<small class="text-primary" style="font-size: 1rem">Active</small></span>
+    }
+</h4>
+
+@code {
+
+    [Parameter]
+    public required Player Player { get; set; }
+
+}

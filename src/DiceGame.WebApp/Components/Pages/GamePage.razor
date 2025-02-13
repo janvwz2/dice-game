@@ -1,0 +1,51 @@
+@page "/game"
+
+<h1>Dice Game</h1>
+
+<div class="row row-cols-1 row-cols-md-2 g-1 mb-3">
+    <div class="col h-100">
+        <PlayerCard Player="@Game.Player1"/>
+    </div>
+    <div class="col h-100">
+        <PlayerCard Player="@Game.Player2"/>
+    </div>
+</div>
+<div class="card bg-light-subtle">
+    <div class="card-body">
+        @if (Game.IsActive)
+        {
+            <h5 class="card-title text-primary">Active</h5>
+            <p class="card-text">The game is active.</p>
+            <p class="card-text">
+                <span>Player to move: <strong>@Game.ActivePlayer.Name</strong></span><br/>
+                <span>Round: <strong>@Game.ActiveRoundNumber</strong></span>
+            </p>
+        }
+        else if (Game.IsFinished)
+        {
+            <h5 class="card-title text-success">Finished!</h5>
+            <p class="card-text">The game has finished.</p>
+        }
+        else
+        {
+            <h5 class="card-title">Not started</h5>
+            <p class="card-text">The game has not started yet.</p>
+            <div>
+                <button type="button" class="btn btn-primary" @onclick="@StartGame">
+                    <span>Start game</span>
+                </button>
+            </div>
+        }
+    </div>
+</div>
+@if (Game.Logs.Any())
+{
+    <hr/>
+    <h5>Log</h5>
+    <ul>
+        @foreach (var log in Game.Logs)
+        {
+            <li class="text-muted">@log</li>
+        }
+    </ul>
+}

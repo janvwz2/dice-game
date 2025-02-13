@@ -1,0 +1,15 @@
+﻿@page "/"
+
+<PageTitle>@ApplicationName</PageTitle>
+
+<h1>@ApplicationName</h1>
+
+<p>Welcome to the @ApplicationName app.</p>
+
+<NavLink class="btn btn-primary" href="/game">
+    <span>Start a new game</span>
+</NavLink>
+
+@code {
+    private const string ApplicationName = "Dice Game";
+}
